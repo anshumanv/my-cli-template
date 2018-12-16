@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 'use strict';
-const path = require('path');
 const meow = require('meow');
 const termImg = require('term-img');
 const got = require('got');
