@@ -16,14 +16,14 @@ meow(`
 `);
 
 const fallback = async () => {
-  const { avatar_url } = await got('api.github.com/users/{{ github }}');
+  const { body: { avatar_url } } = await got('api.github.com/users/{{ github }}');
   const { body } = await got(avatar_url, {encoding: null});
 	const image = await terminalImage.buffer(body);
 	console.log(image);
 };
 
 (async () => {
-	const { avatar_url } = await got('api.github.com/users/{{ github }}');
+	const { body: { avatar_url } } = await got('api.github.com/users/{{ github }}');
   const { body } = await got(avatar_url, {encoding: null});
   termImg(body, {fallback});
 
