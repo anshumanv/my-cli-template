@@ -27,6 +27,7 @@
 		"{{ github }}"
 	],
 	"dependencies": {
+		"cfonts": "^2.3.0",
 		"eslint-config-xo-react": "^0.17.0",
 		"got": "^9.4.0",
 		"import-jsx": "^1.3.0",
