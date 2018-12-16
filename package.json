@@ -1,5 +1,5 @@
 {
-	"name": "{{ name }}",
+	"name": "{{ repo }}",
 	"version": "1.0.0",
 	"description": "The {{ name }} CLI",
 	"license": "MIT",

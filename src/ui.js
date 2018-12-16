@@ -24,11 +24,11 @@ const items = [
 	},
 	{
 		label: 'Twitter',
-		url: '{{ twitter }}'
+		url: 'https://twitter.com/{{ twitter }}'
 	},
 	{
 		label: 'GitHub',
-		url: '{{ github }}'
+		url: 'https://github.com/{{ github }}'
 	},
 	{
 		label: 'Blog',
@@ -37,6 +37,10 @@ const items = [
 	{
 		label: 'Contact',
 		url: '{{ email }}'
+	},
+	{
+		label: 'linkedIn',
+		url: 'https://linkedin.com/in/{{ linkedin }}'
   },
   /*
 	{
