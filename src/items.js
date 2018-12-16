@@ -20,7 +20,7 @@ module.exports = [
 		url: 'https://{{ contact }}'
 	},
 	{
-		label: 'linkedIn',
+		label: 'LinkedIn',
 		url: 'https://linkedin.com/in/{{ linkedin }}'
   },
   /*
