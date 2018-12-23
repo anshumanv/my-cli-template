@@ -7,7 +7,7 @@ const terminalImage = require('terminal-image');
 const importJsx = require('import-jsx');
 const {h, render} = require('ink');
 const cfonts = require('cfonts');
-
+const iterm2Version = require('iterm2-version');
 const ui = importJsx('./ui');
 
 meow(`
@@ -15,24 +15,18 @@ meow(`
 	  $ {{ github }}
 `);
 
-const fallback = async () => {
-  const { body: { avatar_url } } = await got('api.github.com/users/{{ github }}', { json: true });
-  const { body } = await got(avatar_url, {encoding: null});
-	const image = await terminalImage.buffer(body);
-	console.log(image);
-};
-
 (async () => {
-	const { body: { avatar_url } } = await got('api.github.com/users/{{ github }}', { json: true });
-  const { body } = await got(avatar_url, {encoding: null});
-  termImg(body, {fallback});
+	const {body: {avatar_url}} = await got('api.github.com/users/{{ github }}', {json: true});
+	const smallAvatar = avatar_url + '&s=256';
+	const {body} = await got(smallAvatar, {encoding: null});
+	if (process.env.TERM_PROGRAM !== 'iTerm.app' || Number(iterm2Version()[0]) < 3) {
+		await console.log(await terminalImage.buffer(body));
+	} else {
+		await termImg(body);
+	}
+	await cfonts.say('{{ github }}', {
+		font: 'chrome',
+		colors: ['cyan', 'blue', 'blueBright']
+	});
+	await render(h(ui));
 })();
-
-
-// Experimental
-cfonts.say('{{ github }}', {
-	font: 'chrome',
-	colors: ['cyan', 'blue', 'blueBright']
-})
-
-render(h(ui));
