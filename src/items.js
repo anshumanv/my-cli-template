@@ -1,10 +1,10 @@
 module.exports = [
 	{
-		label: 'Website',
+		label: '🌐 Website',
 		url: '{{ web }}'
 	},
 	{
-		label: 'Twitter',
+		label: '🐦 Twitter',
 		url: 'https://twitter.com/{{ twitter }}'
 	},
 	{
@@ -12,15 +12,15 @@ module.exports = [
 		url: 'https://github.com/{{ github }}'
 	},
 	{
-		label: 'Blog',
+		label: '✍️ Blog',
 		url: '{{ blog }}'
 	},
 	{
-		label: 'Contact',
+		label: '📇 Contact',
 		url: 'https://{{ contact }}'
 	},
 	{
-		label: 'LinkedIn',
+		label: '💼 LinkedIn',
 		url: 'https://linkedin.com/in/{{ linkedin }}'
   },
   /*
@@ -30,7 +30,7 @@ module.exports = [
   },
   */
 	{
-		label: 'Quit',
+		label: '🔚 Quit',
 		action() {
 			process.exit(); // eslint-disable-line unicorn/no-process-exit
 		}
