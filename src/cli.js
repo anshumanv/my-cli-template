@@ -17,11 +17,12 @@ meow(`
 
 (async () => {
 	const {body: {avatar_url}} = await got('api.github.com/users/{{ github }}', {json: true});
-	const smallAvatar = avatar_url + '&s=256';
-	const {body} = await got(smallAvatar, {encoding: null});
+	const {body} = await got(avatar_url, {encoding: null});
 	if (process.env.TERM_PROGRAM !== 'iTerm.app' || Number(iterm2Version()[0]) < 3) {
 		await console.log(await terminalImage.buffer(body));
 	} else {
+		const smallAvatar = avatar_url + '&s=256';
+		const {body} = await got(smallAvatar, {encoding: null});
 		await termImg(body);
 	}
 	await cfonts.say('{{ github }}', {
